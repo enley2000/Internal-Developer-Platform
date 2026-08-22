@@ -95,10 +95,3 @@ kubernetes/helm/     Helm chart for AKS deployment (Phase 3)
 .github/workflows/   CI/CD pipeline (Phase 4)
 docs/                architecture, security, deployment, incident-response, ai-agent
 ```
-
-## Why this project
-
-Built for an Accenture Platform/DevOps Engineering interview to demonstrate
-hands-on use of Azure, Terraform, Kubernetes, CI/CD, monitoring, security,
-and AI-assisted operations — not just familiarity with the tools individually,
-but using them together to run something.
