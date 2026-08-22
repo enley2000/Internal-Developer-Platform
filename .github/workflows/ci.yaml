@@ -1,0 +1,42 @@
+name: CI
+
+# This is intentionally the first few stages of the bigger pipeline
+# described in docs/architecture.md:
+#   git push -> tests -> security scan -> docker build -> (later) push+deploy
+# Deploy stages get added in Phase 4/6 once AKS + Trivy are wired up.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest tests/ -v
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t customer-api:${{ github.sha }} .
+
+      # Phase 6 (DevSecOps) will add: Trivy image scan, secret scanning,
+      # and pushing to a registry (ACR) as separate steps here.
