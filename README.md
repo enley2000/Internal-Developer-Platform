@@ -5,7 +5,7 @@ the platform provisions the cloud infrastructure, builds and deploys it,
 monitors it, and gives an AI agent tools to investigate and explain incidents.
 
 Built as a portfolio project to demonstrate practical Platform/DevOps
-engineering â€” cloud infrastructure, IaC, containers, CI/CD, observability,
+engineering — cloud infrastructure, IaC, containers, CI/CD, observability,
 security, and AI-assisted operations working together end to end, rather
 than as five separate tutorial projects.
 
@@ -15,16 +15,16 @@ This repo is being built in phases. Current status:
 
 | Phase | Scope | Status |
 |---|---|---|
-| 1 | Python service (`customer-api`) + Docker | âœ… done |
-| 2 | Terraform â†’ Azure (AKS, ACR, Key Vault, networking) | âœ… written, not yet applied (no Azure subscription yet) |
-| 3 | Kubernetes manifests / Helm chart | â¬œ next |
-| 4 | GitHub Actions CI/CD (build â†’ scan â†’ push â†’ deploy) | â¬œ |
-| 5 | Prometheus + Grafana observability | â¬œ |
-| 6 | DevSecOps (Trivy, secret scanning, RBAC, Key Vault) | â¬œ |
-| 7 | AI operations agent (tools over K8s/Prometheus/GitHub) | â¬œ |
-| 8 | Simulated production incident demo | â¬œ |
-| 9 | Architecture diagrams + docs | â¬œ |
-| 10 | Interview prep notes | â¬œ |
+| 1 | Python service (`customer-api`) + Docker | ✅ done |
+| 2 | Terraform → Azure (AKS, ACR, Key Vault, networking) | ✅ written, not yet applied (no Azure subscription yet) |
+| 3 | Kubernetes manifests / Helm chart | ⬜ next |
+| 4 | GitHub Actions CI/CD (build → scan → push → deploy) | ⬜ |
+| 5 | Prometheus + Grafana observability | ⬜ |
+| 6 | DevSecOps (Trivy, secret scanning, RBAC, Key Vault) | ⬜ |
+| 7 | AI operations agent (tools over K8s/Prometheus/GitHub) | ⬜ |
+| 8 | Simulated production incident demo | ⬜ |
+| 9 | Architecture diagrams + docs | ⬜ |
+| 10 | Interview prep notes | ⬜ |
 
 ## Architecture
 
@@ -60,10 +60,10 @@ Terraform  GitHub      Kubernetes
 
 The sample application the platform deploys. A small FastAPI service with:
 
-- `GET /health/live`, `GET /health/ready` â€” Kubernetes probe targets
-- `GET /metrics` â€” Prometheus scrape target
-- `POST /customers`, `GET /customers`, `GET /customers/{id}` â€” the actual app
-- `SIMULATE_DB_FAILURE=true` env var â€” flips the service into a broken state
+- `GET /health/live`, `GET /health/ready` — Kubernetes probe targets
+- `GET /metrics` — Prometheus scrape target
+- `POST /customers`, `GET /customers`, `GET /customers/{id}` — the actual app
+- `SIMULATE_DB_FAILURE=true` env var — flips the service into a broken state
   on purpose, used for the Phase 8 incident demo
 
 ### Run locally
