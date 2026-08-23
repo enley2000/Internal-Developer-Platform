@@ -1,0 +1,15 @@
+# terraform.tfvars.example
+#
+# Copy this to terraform.tfvars (which is .gitignore'd) and adjust as
+# needed. terraform.tfvars is where you'd override any default from
+# variables.tf without editing the variables file itself â€” e.g. a
+# different region, or enabling the firewall for a demo.
+
+project_name = "idpplatform"
+environment  = "dev"
+location     = "westeurope"
+
+aks_node_count   = 1
+aks_node_vm_size = "Standard_B2s"
+
+enable_azure_firewall = false
