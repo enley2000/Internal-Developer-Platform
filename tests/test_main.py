@@ -1,4 +1,8 @@
 import os
+import sys
+
+#Force the test to use the local version of the app, not an installed version.
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 os.environ["DATABASE_URL"] = "sqlite:///./test.db"
 
